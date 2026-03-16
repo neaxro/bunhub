@@ -1,11 +1,3 @@
--- Guests table
-CREATE TABLE guests (
-    guest_id SERIAL PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL
-);
-
 -- Statuses table
 CREATE TABLE statuses (
     status_id SERIAL PRIMARY KEY,
@@ -39,12 +31,12 @@ CREATE TABLE burger_ingredients (
 -- Orders table
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
-    guest_id INT NOT NULL,
     burger_id INT NOT NULL,
     status_id INT NOT NULL,
+    guest_name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (guest_id) REFERENCES guests(guest_id) ON DELETE CASCADE,
     FOREIGN KEY (burger_id) REFERENCES burgers(burger_id) ON DELETE CASCADE,
     FOREIGN KEY (status_id) REFERENCES statuses(status_id)
 );

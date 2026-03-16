@@ -1,16 +1,11 @@
-guests
--------------
-guest_id (PK)
-first_name
-last_name
-email
-
 orders
 -------------
 order_id (PK)
 guest_id (FK)
 burger_id (FK)
 status_id (FK)
+guest_name
+email
 comment
 
 statuses
