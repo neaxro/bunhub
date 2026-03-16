@@ -1,0 +1,10 @@
+services:
+  backend:
+    build:
+      context: backend/
+      dockerfile: Dockerfile
+    environment:
+      LOGLEVEL: info
+      ROOTPATH: "/"
+    ports:
+      - 8000:8000
