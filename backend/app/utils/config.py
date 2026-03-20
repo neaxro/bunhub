@@ -4,6 +4,7 @@ class Config:
     def __init__(self):
         # App settings
         self.ROOTPATH = os.getenv("ROOTPATH", "/")
+        self.APP_ENVIRONMENT = os.getenv("APP_ENVIRONMENT", "test")
 
         # POSTGRES database related config
         self.POSTGRES_USER = os.getenv("POSTGRES_USER", "bunhub_user")
