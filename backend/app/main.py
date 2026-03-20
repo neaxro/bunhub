@@ -1,7 +1,7 @@
 import logging
 
 from fastapi import FastAPI
-from app.routes import shef
+from app.routes import shef, burgers
 from app.utils.config import config
 
 logger = logging.getLogger(__name__)
@@ -14,3 +14,4 @@ app = FastAPI(
 
 logger.info("Attaching routers...")
 app.include_router(shef.router, prefix="/shef")
+app.include_router(burgers.router, prefix="/burgers")
