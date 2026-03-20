@@ -8,7 +8,7 @@ CREATE TABLE statuses (
 CREATE TABLE burgers (
     burger_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    comment TEXT
+    description  TEXT
 );
 
 -- Ingredients table
@@ -34,7 +34,7 @@ CREATE TABLE orders (
     burger_id INT NOT NULL,
     status_id INT NOT NULL,
     guest_name VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (burger_id) REFERENCES burgers(burger_id) ON DELETE CASCADE,

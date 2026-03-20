@@ -1,10 +1,29 @@
 services:
   backend:
+    container_name: bunhub_api
     build:
       context: backend/
       dockerfile: Dockerfile
     environment:
       LOGLEVEL: info
       ROOTPATH: "/"
+      POSTGRES_USER: bunhub_user
+      POSTGRES_PASSWORD: securepassword
+      POSTGRES_HOST: database
+      POSTGRES_DATABASE: bunhub
+      POSTGRES_PORT: 5432
     ports:
       - 8000:8000
+
+  database:
+    container_name: bunhub_db
+    image: postgres:18.3
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: bunhub_user
+      POSTGRES_PASSWORD: securepassword
+      POSTGRES_DB: bunhub
+    ports:
+      - 5432:5432
+    volumes:
+    - ./database:/docker-entrypoint-initdb.d
